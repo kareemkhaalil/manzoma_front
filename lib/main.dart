@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:manzoma_front/core/constants/app_router.dart';
 import 'package:manzoma_front/core/constants/app_theme.dart';
 import 'package:manzoma_front/core/constants/routes.dart';
@@ -17,13 +18,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Manzoma',
-      theme: AppThemes.lightTheme,
-      darkTheme: AppThemes.darkTheme,
-      themeMode: ThemeMode.light,
-      initialRoute: RoutesNames.home,
-      onGenerateRoute: AppRouter.generateRoute,
+    return ScreenUtilInit(
+      designSize: const Size(1440, 1024), // حجم التصميم الأساسي (Figma مثلاً)
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return MaterialApp(
+          title: 'Manzoma',
+          theme: AppThemes.lightTheme,
+          darkTheme: AppThemes.darkTheme,
+          themeMode: ThemeMode.light,
+          initialRoute: RoutesNames.home,
+          onGenerateRoute: AppRouter.generateRoute,
+        );
+      },
     );
   }
 }

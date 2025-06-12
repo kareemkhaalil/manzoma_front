@@ -4,7 +4,7 @@ abstract class Failure {
 }
 
 class ServerFailure extends Failure {
-  const ServerFailure(String message) : super(message);
+  const ServerFailure(super.message);
 }
 
 class NetworkFailure extends Failure {
@@ -12,6 +12,5 @@ class NetworkFailure extends Failure {
 }
 
 class UnexpectedFailure extends Failure {
-  const UnexpectedFailure([String message = "Unexpected error"])
-    : super(message);
+  const UnexpectedFailure([super.message = "Unexpected error"]);
 }

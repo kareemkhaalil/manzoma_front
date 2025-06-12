@@ -21,6 +21,7 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource {
   }
 
   // add user
+  @override
   Future addUser(UserModel user) async {
     final response = await client.from('users').insert(user.toJson());
     return response;
