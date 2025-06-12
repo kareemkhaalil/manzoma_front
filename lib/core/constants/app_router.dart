@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:manzoma_front/core/constants/routes.dart';
 import 'package:manzoma_front/core/di.dart';
 import 'package:manzoma_front/presentation/blocs/client_cubit.dart';
-import 'package:manzoma_front/presentation/blocs/user_cubit.dart';
+import 'package:manzoma_front/presentation/screens/auth/login_screen.dart';
 import 'package:manzoma_front/presentation/screens/home_screen.dart';
 
 class AppRouter {
@@ -17,6 +17,8 @@ class AppRouter {
                 child: HomeScreen(),
               ),
         );
+      case RoutesNames.login:
+        return MaterialPageRoute(builder: (_) => const LoginScreen());
 
       default:
         return MaterialPageRoute(
